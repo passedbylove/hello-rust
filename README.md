@@ -1,6 +1,8 @@
 * 准备环境
 安装source包和xargo
 ```shell
+rustup install nightly
+rustup default nightly
 rustup add component rust-src
 cargo install xargo
 ```
@@ -15,7 +17,7 @@ use std::env;
 fn main() {
     let staging_dir = env::var("STAGING_DIR").unwrap();
     println!(
-        r"cargo:rustc-link-search={}/target-mipsel_24kec+dsp_uClibc-0.9.33.2/usr/lib",
+        r"cargo:rustc-link-search={}/mipsel-openwrt-linux-musl/lib",
         staging_dir
     );
 }
@@ -27,7 +29,7 @@ fn main() {
 target = "mipsel-unknown-linux-gnu"
 
 [target.mipsel-unknown-linux-gnu]
-linker = "mipsel-openwrt-linux-uclibc-gcc"
+linker = "mipsel-openwrt-linux-musl-gcc"
 rustflags = ["-C", "embed-bitcode"]
 #rustflags = ["-C", "embed-bitcode", "-C", "prefer-dynamic"]
 ```
@@ -36,3 +38,8 @@ rustflags = ["-C", "embed-bitcode"]
 https://github.com/likon/hello-rust
 ```
 然后make menuconfig应该会出现hello-rust了。
+openwrt should check 
+Library->libpcap
+Networking->
+
+https://www.cnblogs.com/sanmubai/p/12504795.html

@@ -17,7 +17,7 @@ define Package/hello-rust
   CATEGORY:=Rust Program
   TITLE:=just a test for rust lang
   MAINTAINER:=likon
-  DEPENDS:= +libubox +libubus +libuci
+  DEPENDS:= +libubox +libubus +libuci +libpcap
 endef
 
 define Build/Prepare

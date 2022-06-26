@@ -3,7 +3,7 @@
 target = "mipsel-unknown-linux-gnu"
 
 [target.mipsel-unknown-linux-gnu]
-linker = "mipsel-openwrt-linux-uclibc-gcc"
+linker = "mipsel-openwrt-linux-musl-gcc"
 rustflags = ["-C", "embed-bitcode"]
 #rustflags = ["-C", "embed-bitcode", "-C", "prefer-dynamic"]
 
